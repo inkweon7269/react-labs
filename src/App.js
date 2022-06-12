@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import ToggleComp from "./component/hooks/ToggleComp";
+import ArrayComp from "./component/hooks/ArrayComp";
+import PrevComp from "./component/hooks/PrevComp";
+import StorageComp from "./component/hooks/StorageComp";
+import ScriptComp from "./component/hooks/ScriptComp";
+import OnScreenComp from "./component/hooks/OnScreenComp";
+import ClickOutsideComp from "./component/hooks/ClickOutsideComp";
+import CopyToClipboardComp from "./component/hooks/CopyToClipboardComp";
+import CookieComp from "./component/hooks/CookieComp";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+    return (
+        <div>
+            {/*<ToggleComp />*/}
+            {/*<ArrayComp />*/}
+            {/*<PrevComp />*/}
+            {/*<StorageComp />*/}
+
+            {/*<ScriptComp />*/}
+            {/*<OnScreenComp />*/}
+            {/*<ClickOutsideComp />*/}
+            {/*<CopyToClipboardComp />*/}
+            <CookieComp />
+        </div>
+    );
+};
 
 export default App;
