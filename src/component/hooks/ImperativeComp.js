@@ -1,5 +1,7 @@
 import React, {useRef, forwardRef, useImperativeHandle, useState} from 'react';
 
+
+
 const _Cart = forwardRef(({onClick}, ref) => {
     const [modalVisible, setModalVisible] = useState(false)
 
@@ -31,8 +33,7 @@ const ImperativeComp = () => {
     const ref = useRef();
     const onClick = () => {
         // console.log(ref.current.getValue());
-        console.log(ref.current.getArgValue('Nice to meet you'));
-
+        // console.log(ref.current.getArgValue('Nice to meet you'));
         // ref.current.closeProfileModal();
     }
 
