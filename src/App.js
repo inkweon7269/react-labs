@@ -7,6 +7,7 @@ import OnScreenComp from "./component/hooks/OnScreenComp";
 import ClickOutsideComp from "./component/hooks/ClickOutsideComp";
 import CopyToClipboardComp from "./component/hooks/CopyToClipboardComp";
 import CookieComp from "./component/hooks/CookieComp";
+import DeferredComp from "./component/hooks/DeferredComp";
 
 const App = () => {
 
@@ -21,7 +22,9 @@ const App = () => {
             {/*<OnScreenComp />*/}
             {/*<ClickOutsideComp />*/}
             {/*<CopyToClipboardComp />*/}
-            <CookieComp />
+            {/*<CookieComp />*/}
+
+            <DeferredComp />
         </div>
     );
 };
