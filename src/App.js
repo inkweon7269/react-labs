@@ -8,6 +8,7 @@ import ClickOutsideComp from "./component/hooks/ClickOutsideComp";
 import CopyToClipboardComp from "./component/hooks/CopyToClipboardComp";
 import CookieComp from "./component/hooks/CookieComp";
 import DeferredComp from "./component/hooks/DeferredComp";
+import ImperativeComp from "./component/hooks/ImperativeComp";
 
 const App = () => {
 
@@ -24,7 +25,8 @@ const App = () => {
             {/*<CopyToClipboardComp />*/}
             {/*<CookieComp />*/}
 
-            <DeferredComp />
+            {/*<DeferredComp />*/}
+            <ImperativeComp />
         </div>
     );
 };
