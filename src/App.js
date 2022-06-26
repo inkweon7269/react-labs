@@ -9,6 +9,11 @@ import CopyToClipboardComp from "./component/hooks/CopyToClipboardComp";
 import CookieComp from "./component/hooks/CookieComp";
 import DeferredComp from "./component/hooks/DeferredComp";
 import ImperativeComp from "./component/hooks/ImperativeComp";
+import {Card} from "./component/compound/Card";
+import movies from './data.json';
+import Accordion from "./component/compound/Accordion";
+
+
 
 const App = () => {
 
@@ -26,7 +31,32 @@ const App = () => {
             {/*<CookieComp />*/}
 
             {/*<DeferredComp />*/}
-            <ImperativeComp />
+            {/*<ImperativeComp />*/}
+
+            {/*
+            {movies.map(movie => (
+                <Card key={movie.id} className='mr'>
+                    <Card.Image src={movie.image} alt={movie.title} />
+                    <Card.Body>
+                        <Card.Title>{movie.title}</Card.Title>
+                        <Card.Text>{movie.desc}</Card.Text>
+                        <Card.Button>{movie.ctaText}</Card.Button>
+                    </Card.Body>
+                </Card>
+            ))}
+            */}
+
+            <Accordion>
+                <Accordion.Title>Movie Info</Accordion.Title>
+                <Accordion.Frame>
+                    {movies.map(movie => (
+                        <Accordion.Item key={movie.id}>
+                            <Accordion.Header>{movie.title}</Accordion.Header>
+                            <Accordion.Body>{movie.desc}</Accordion.Body>
+                        </Accordion.Item>
+                    ))}
+                </Accordion.Frame>
+            </Accordion>
         </div>
     );
 };
