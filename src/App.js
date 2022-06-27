@@ -9,9 +9,10 @@ import CopyToClipboardComp from "./component/hooks/CopyToClipboardComp";
 import CookieComp from "./component/hooks/CookieComp";
 import DeferredComp from "./component/hooks/DeferredComp";
 import ImperativeComp from "./component/hooks/ImperativeComp";
-import {Card} from "./component/compound/Card";
+import {Card} from "./component/pattern/compound/Card";
 import movies from './data.json';
-import Accordion from "./component/compound/Accordion";
+import Accordion from "./component/pattern/compound/Accordion";
+import Toggle from "./component/pattern/compound/Toggle";
 
 
 
@@ -46,6 +47,7 @@ const App = () => {
             ))}
             */}
 
+            {/*
             <Accordion>
                 <Accordion.Title>Movie Info</Accordion.Title>
                 <Accordion.Frame>
@@ -57,6 +59,15 @@ const App = () => {
                     ))}
                 </Accordion.Frame>
             </Accordion>
+            */}
+
+            <Toggle>
+                <Toggle.On>The Button is On</Toggle.On>
+                <Toggle.Off>The Button is Off</Toggle.Off>
+                <div>
+                    <Toggle.Button />
+                </div>
+            </Toggle>
         </div>
     );
 };
