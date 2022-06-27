@@ -13,6 +13,9 @@ import {Card} from "./component/pattern/compound/Card";
 import movies from './data.json';
 import Accordion from "./component/pattern/compound/Accordion";
 import Toggle from "./component/pattern/compound/Toggle";
+import SplitComp from "./component/pattern/layout/SplitComp";
+import LeftHandComp from "./component/pattern/layout/LeftHandComp";
+import RightHandComp from "./component/pattern/layout/RightHandComp";
 
 
 
@@ -61,6 +64,7 @@ const App = () => {
             </Accordion>
             */}
 
+            {/*
             <Toggle>
                 <Toggle.On>The Button is On</Toggle.On>
                 <Toggle.Off>The Button is Off</Toggle.Off>
@@ -68,6 +72,14 @@ const App = () => {
                     <Toggle.Button />
                 </div>
             </Toggle>
+            */}
+
+            <SplitComp
+                left={LeftHandComp}
+                right={RightHandComp}
+                leftWeight={1}
+                rightWeight={3}
+            />
         </div>
     );
 };
