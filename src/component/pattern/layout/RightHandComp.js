@@ -1,10 +1,8 @@
 import React from 'react';
 
-const RightHandComp = () => {
+const RightHandComp = ({ message }) => {
     return (
-        <p style={{background: 'pink'}}>
-          Right!
-        </p>
+        <p style={{background: 'pink'}}>{message}</p>
     );
 };
 

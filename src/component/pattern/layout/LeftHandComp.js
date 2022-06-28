@@ -1,10 +1,8 @@
 import React from 'react';
 
-const LeftHandComp = () => {
+const LeftHandComp = ({name}) => {
     return (
-        <h1 style={{background: "yellow"}}>
-            Left!
-        </h1>
+        <h1 style={{background: "yellow"}}>{name}</h1>
     );
 };
 
