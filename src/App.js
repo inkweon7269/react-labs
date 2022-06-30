@@ -22,6 +22,13 @@ import LargePersonListItem from "./component/pattern/layout/LargePersonListItem"
 import SmallProductListItem from "./component/pattern/layout/SmallProductListItem";
 import LargeProductListItem from "./component/pattern/layout/LargeProductListItem";
 import Modal from "./component/pattern/layout/Modal";
+import UncontrolledForm from "./component/pattern/uncontrolled/UncontrolledForm";
+import ControlledForm from "./component/pattern/controlled/ControlledForm";
+import UncontrolledModal from "./component/pattern/uncontrolled/UncontrolledModal";
+import ControlledModal from "./component/pattern/controlled/ControlledModal";
+import {useState} from "react";
+import UncontrolledOnBoardingFlow from "./component/pattern/uncontrolled/UncontrolledOnBoardingFlow";
+import ControlledOnBoardingFlow from "./component/pattern/controlled/ControlledOnBoardingFlow";
 
 
 const people = [
@@ -44,7 +51,6 @@ const people = [
         hobbies: ['biology', 'medicine', 'gymnastics']
     },
 ];
-
 const products = [
     {
         name: 'Flat-Screen TV 1',
@@ -66,8 +72,45 @@ const products = [
     },
 ]
 
+const StepOne = ({goToNext}) => (
+    <>
+        <h1>Step 1</h1>
+        <button onClick={() => goToNext({ name: 'John Doe' })}>Next</button>
+    </>
+);
+const StepTwo = ({goToNext}) => (
+    <>
+        <h1>Step 2</h1>
+        <button onClick={() => goToNext({ age: 50 })}>Next</button>
+    </>
+);
+const StepThree = ({goToNext}) => (
+    <>
+        <h1>Step 3</h1>
+        <p>Congratulations! You qualify for our senior discount</p>
+        <button onClick={() => goToNext({ })}>Next</button>
+    </>
+);
+
+const StepFour = ({goToNext}) => (
+    <>
+        <h1>Step 4</h1>
+        <button onClick={() => goToNext({ hairColor: 'red' })}>Next</button>
+    </>
+);
 
 const App = () => {
+
+    const [shouldShowModal, setShouldShowModal] = useState(false);
+
+
+    const [onBoardingData, setOnBoardingData] = useState({});
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const onNext = stepData => {
+        setOnBoardingData({...onBoardingData, ...stepData});
+        setCurrentIndex(currentIndex + 1);
+    }
 
     return (
         <div>
@@ -160,9 +203,47 @@ const App = () => {
             */}
 
             {/*
-            <Modal>
+            <UncontrolledModal>
                 <LargeProductListItem product={products[0]} />
-            </Modal>
+            </UncontrolledModal>
+            */}
+
+            {/*
+            <UncontrolledForm />
+            <ControlledForm />
+            */}
+
+            {/*
+            <ControlledModal
+                shouldShow={shouldShowModal}
+                onRequestClose={() => setShouldShowModal(false)}
+            >
+                <h1>Hello World</h1>
+            </ControlledModal>
+            <button onClick={() => setShouldShowModal(!shouldShowModal)}>
+                {shouldShowModal ? 'Hide Modal' : 'Show Modal'}
+            </button>
+            */}
+
+            {/*
+            <UncontrolledOnBoardingFlow onFinish={data => console.log(data)}>
+                <StepOne />
+                <StepTwo />
+                <StepThree />
+            </UncontrolledOnBoardingFlow>
+            */}
+
+            {/*
+            <ControlledOnBoardingFlow
+                currentIndex={currentIndex}
+                onNext={onNext}
+                onFinish={data => console.log(data)}
+            >
+                <StepOne />
+                <StepTwo />
+                {onBoardingData.age >= 62 && <StepThree />}
+                <StepFour />
+            </ControlledOnBoardingFlow>
             */}
         </div>
     );
