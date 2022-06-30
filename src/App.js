@@ -21,6 +21,7 @@ import SmallPersonListItem from "./component/pattern/layout/SmallPersonListItem"
 import LargePersonListItem from "./component/pattern/layout/LargePersonListItem";
 import SmallProductListItem from "./component/pattern/layout/SmallProductListItem";
 import LargeProductListItem from "./component/pattern/layout/LargeProductListItem";
+import Modal from "./component/pattern/layout/Modal";
 
 
 const people = [
@@ -121,6 +122,8 @@ const App = () => {
             </Toggle>
             */}
 
+
+            {/*
             <SplitComp
                 leftWeight={1}
                 rightWeight={3}
@@ -128,7 +131,9 @@ const App = () => {
                 <LeftHandComp name='Kim' />
                 <RightHandComp message='Hello World' />
             </SplitComp>
+            */}
 
+            {/*
             <RegularList
                 items={people}
                 resourceName='person'
@@ -152,6 +157,13 @@ const App = () => {
                 resourceName='product'
                 itemComponent={LargeProductListItem}
             />
+            */}
+
+            {/*
+            <Modal>
+                <LargeProductListItem product={products[0]} />
+            </Modal>
+            */}
         </div>
     );
 };
