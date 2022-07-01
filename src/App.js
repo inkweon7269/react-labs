@@ -31,8 +31,9 @@ import UncontrolledOnBoardingFlow from "./component/pattern/uncontrolled/Uncontr
 import ControlledOnBoardingFlow from "./component/pattern/controlled/ControlledOnBoardingFlow";
 import printProps from "./component/pattern/higher/printProps";
 import UserInfo from "./component/pattern/higher/UserInfo";
-import { withUser } from "./component/pattern/higher/withUser";
+import {withUser} from "./component/pattern/higher/withUser";
 import {UserInfoForm} from "./component/pattern/higher/UserInfoForm";
+import UserInfoComp from "./component/hooks/UserInfoComp";
 
 
 const people = [
@@ -109,7 +110,7 @@ const StepFour = ({goToNext}) => (
 
 // Higher Order Component
 // const UserInfoWrapped = printProps(UserInfo);
-const UserInfoWithLoader = withUser(UserInfo, 1);
+// const UserInfoWithLoader = withUser(UserInfo, 1);
 
 
 const App = () => {
@@ -261,7 +262,6 @@ const App = () => {
             */}
 
 
-
             {/*
             <UserInfoWrapped
                 name='Leanne Graham'
@@ -271,9 +271,15 @@ const App = () => {
             */}
 
 
-            <UserInfoWithLoader />
+            {/*<UserInfoWithLoader />*/}
 
-            <UserInfoForm />
+            {/*<UserInfoForm />*/}
+
+
+
+            <UserInfoComp userId={1}/>
+            {/*<UserInfoComp userId={2}/>*/}
+            {/*<UserInfoComp userId={3}/>*/}
         </div>
     );
 };
