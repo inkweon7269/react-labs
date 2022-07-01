@@ -29,6 +29,10 @@ import ControlledModal from "./component/pattern/controlled/ControlledModal";
 import {useState} from "react";
 import UncontrolledOnBoardingFlow from "./component/pattern/uncontrolled/UncontrolledOnBoardingFlow";
 import ControlledOnBoardingFlow from "./component/pattern/controlled/ControlledOnBoardingFlow";
+import printProps from "./component/pattern/higher/printProps";
+import UserInfo from "./component/pattern/higher/UserInfo";
+import { withUser } from "./component/pattern/higher/withUser";
+import {UserInfoForm} from "./component/pattern/higher/UserInfoForm";
 
 
 const people = [
@@ -72,6 +76,8 @@ const products = [
     },
 ]
 
+// Controlled, UnControlled
+/*
 const StepOne = ({goToNext}) => (
     <>
         <h1>Step 1</h1>
@@ -98,19 +104,27 @@ const StepFour = ({goToNext}) => (
         <button onClick={() => goToNext({ hairColor: 'red' })}>Next</button>
     </>
 );
+*/
+
+
+// Higher Order Component
+// const UserInfoWrapped = printProps(UserInfo);
+const UserInfoWithLoader = withUser(UserInfo, 1);
+
 
 const App = () => {
 
+    // Controlled, UnControlled
+    /*
     const [shouldShowModal, setShouldShowModal] = useState(false);
-
 
     const [onBoardingData, setOnBoardingData] = useState({});
     const [currentIndex, setCurrentIndex] = useState(0);
-
     const onNext = stepData => {
         setOnBoardingData({...onBoardingData, ...stepData});
         setCurrentIndex(currentIndex + 1);
     }
+    */
 
     return (
         <div>
@@ -245,6 +259,21 @@ const App = () => {
                 <StepFour />
             </ControlledOnBoardingFlow>
             */}
+
+
+
+            {/*
+            <UserInfoWrapped
+                name='Leanne Graham'
+                email='Sincere@april.biz'
+                phone='1-770-736-8031 x56442'
+            />
+            */}
+
+
+            <UserInfoWithLoader />
+
+            <UserInfoForm />
         </div>
     );
 };
