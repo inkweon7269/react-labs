@@ -15,6 +15,7 @@
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.31.1",
     "react-scripts": "5.0.1",
+    "react-use": "^17.4.0",
     "recharts": "^2.1.10",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
@@ -41,6 +42,11 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$"
     ]
   }
 }
