@@ -34,6 +34,8 @@ import UserInfo from "./component/pattern/higher/UserInfo";
 import {withUser} from "./component/pattern/higher/withUser";
 import {UserInfoForm} from "./component/pattern/higher/UserInfoForm";
 import UserInfoComp from "./component/hooks/UserInfoComp";
+import {BigSuccessButton1, DangerButton1} from "./component/pattern/functional/composition";
+import {BigSuccessButton2, DangerButton2} from "./component/pattern/functional/partiallyApply";
 
 
 const people = [
@@ -280,6 +282,13 @@ const App = () => {
             <UserInfoComp userId={1}/>
             {/*<UserInfoComp userId={2}/>*/}
             {/*<UserInfoComp userId={3}/>*/}
+
+
+            {/*<DangerButton1 text="Don't do it!" />*/}
+            {/*<BigSuccessButton1 text='Yes!!!' />*/}
+
+            <DangerButton2 text="Don't do it!" />
+            <BigSuccessButton2 text='Yes!!!' />
         </div>
     );
 };
