@@ -1,57 +1,70 @@
-import React from 'react';
+import React from "react";
 import StyledInput from "../atoms/StyledInput";
 import StyledSelect from "../atoms/StyledSelect";
-import {Button, Col, Form, Layout, Row, Typography} from "antd";
-import {useFormContext} from "react-hook-form";
+import { Button, Col, Form, Layout, Row, Typography } from "antd";
+import { useFormContext } from "react-hook-form";
 import StyledCheckbox from "../atoms/StyledCheckbox";
 import StyledRadio from "../atoms/StyledRadio";
+import StyledSwitch from "../atoms/StyledSwitch";
+import StyledTextArea from "../atoms/StyledTextArea";
+import StyledLabel from "../atoms/StyledLabel";
+import StyledError from "../atoms/StyledError";
 
-const {Content} = Layout;
-const {Paragraph, Text, Title} = Typography;
+const { Content } = Layout;
+const { Paragraph, Title } = Typography;
 
-const JoinTemp = ({onSubmit, onChangeAll, onChangeChecks, onChangeRadio}) => {
-    const {control} = useFormContext();
+const JoinTemp = ({ onSubmit, onChangeAll, onChangeChecks, onChangeRadio }) => {
+    const { control, formState: { errors, isDirty, isValid } } = useFormContext();
 
     return (
         <Form
-            layout='vertical'
+            layout="vertical"
             onFinish={onSubmit}
         >
             <Row>
                 <Col span={12} offset={6}>
                     <Content>
-                        <StyledInput
-                            control={control}
-                            name='name'
-                            placeholder='이름을 입력하세요.'
-                        />
-
-                        <StyledSelect
-                            control={control}
-                            name='gender'
-                            placeholder='성별을 입력하세요.'
-                            options={[
-                                {label: '남자', value: 'man'},
-                                {label: '여자', value: 'women'},
-                            ]}
-                            style={{display: 'block'}}
-                        />
+                        <div>
+                            <StyledLabel htmlFor="name" text="이름" />
+                            <StyledInput
+                                control={control}
+                                name="name"
+                                placeholder="이름을 입력하세요."
+                            />
+                            <StyledError
+                                message={errors.name?.message}
+                            />
+                        </div>
 
                         <div>
-                            <Title level={5}>단일 체크 박스</Title>
+                            <StyledLabel htmlFor="gender" text="성별" />
+                            <StyledSelect
+                                control={control}
+                                name="gender"
+                                placeholder="성별을 입력하세요."
+                                options={[
+                                    { label: "남자", value: "man" },
+                                    { label: "여자", value: "women" },
+                                ]}
+                                style={{ display: "block" }}
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="chk1" text="단일 체크 박스" />
                             <StyledCheckbox
                                 control={control}
-                                name='chk1'
+                                name="chk1"
                             >
                                 <Paragraph>단일 체크박스 테스트</Paragraph>
                             </StyledCheckbox>
                         </div>
 
                         <div>
-                            <Title level={5}>복수의 체크박스</Title>
+                            <StyledLabel htmlFor="all" text="복수의 체크박스" />
                             <StyledCheckbox
                                 control={control}
-                                name='all'
+                                name="all"
                                 onChange={onChangeAll}
                             >
                                 <Paragraph>전체</Paragraph>
@@ -59,41 +72,65 @@ const JoinTemp = ({onSubmit, onChangeAll, onChangeChecks, onChangeRadio}) => {
 
                             <StyledCheckbox
                                 control={control}
-                                name='lang'
+                                name="lang"
                                 options={[
-                                    {label: '자바스크립트', value: 'javascript'},
-                                    {label: '자바', value: 'java',},
-                                    {label: '파이썬', value: 'python'}
+                                    { label: "자바스크립트", value: "javascript" },
+                                    { label: "자바", value: "java" },
+                                    { label: "파이썬", value: "python" },
                                 ]}
                                 onChange={onChangeChecks}
                             />
                         </div>
 
                         <div>
-                            <Title level={5}>단일 라디오</Title>
+                            <StyledLabel htmlFor="radio1" text="단일 라디오" />
                             <StyledRadio
                                 control={control}
-                                name='radio1'
+                                name="radio1"
                             >
                                 <Paragraph>단일 라디오 테스트</Paragraph>
                             </StyledRadio>
                         </div>
 
                         <div>
-                            <Title level={5}>복수의 라디오</Title>
+                            <StyledLabel htmlFor="hobby" text="복수의 라디오" />
                             <StyledRadio
                                 control={control}
-                                name='hobby'
+                                name="hobby"
                                 options={[
-                                    {label: '축구', value: 'soccer'},
-                                    {label: '농구', value: 'basket',},
-                                    {label: '테니스', value: 'tennis'}
+                                    { label: "축구", value: "soccer" },
+                                    { label: "농구", value: "basket" },
+                                    { label: "테니스", value: "tennis" },
                                 ]}
                                 onChange={onChangeRadio}
                             />
                         </div>
 
-                        <Button type='primary' htmlType='submit' block>제출</Button>
+                        <div>
+                            <StyledLabel htmlFor="subscribe" text="구독 상태" />
+                            <StyledSwitch
+                                control={control}
+                                name="subscribe"
+                                chkLabel="ON"
+                                unChkLabel="OFF"
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="intro" text="자기소개" />
+                            <StyledTextArea
+                                control={control}
+                                name="intro"
+                                placeholder="자기소개 하기"
+                            />
+                        </div>
+
+                        <Button
+                            type="primary"
+                            htmlType="submit"
+                            block
+                            disabled={!isDirty || !isValid}
+                        >제출</Button>
                     </Content>
                 </Col>
             </Row>
