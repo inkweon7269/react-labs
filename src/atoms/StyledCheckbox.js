@@ -1,26 +1,28 @@
-import React from 'react';
-import {Checkbox} from "antd";
-import {Controller} from "react-hook-form";
+import React from "react";
+import { Checkbox } from "antd";
+import { Controller, useFormContext } from "react-hook-form";
 
 const StyledCheckbox = ({
-                            control, name, text, style, options, onChange, children
+                            name, text, style, options, onChange, children,
                         }) => {
+    const { control } = useFormContext();
+
     return (
         <>
             {options ? (
                 <Controller
                     control={control}
                     name={name}
-                    render={({field}) => (
+                    render={({ field }) => (
                         <Checkbox.Group
                             {...field}
                             options={options}
                             onChange={(e) => {
                                 if (onChange) {
-                                    onChange(e)
+                                    onChange(e);
                                 }
 
-                                field.onChange(e)
+                                field.onChange(e);
                             }}
                         />
                     )}
@@ -29,15 +31,15 @@ const StyledCheckbox = ({
                 <Controller
                     control={control}
                     name={name}
-                    render={({field}) => (
+                    render={({ field }) => (
                         <Checkbox
                             {...field}
                             checked={field.value}
                             onChange={(e) => {
                                 if (onChange) {
-                                    onChange(e.target.checked)
+                                    onChange(e.target.checked);
                                 }
-                                field.onChange(e.target.checked)
+                                field.onChange(e.target.checked);
                             }}
                         >
                             {children}

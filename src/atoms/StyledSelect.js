@@ -1,10 +1,13 @@
 import React from 'react';
 import {Select} from "antd";
-import {Controller} from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
 const StyledSelect = ({
-                          control, name, placeholder, disabled, style, options, onChange
+                          name, placeholder, disabled, style, options, onChange
                       }) => {
+
+    const { control } = useFormContext();
+
     return (
         <Controller
             control={control}

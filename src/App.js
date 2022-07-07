@@ -7,21 +7,20 @@ import TodoList from "./component/mobx/TodoList";
 
 
 const App = () => {
-    return (
+    /*return (
         <StoreProvider>
-            {/*<Count />*/}
-
+            <Count />
             <TodoEdit />
             <TodoList />
         </StoreProvider>
-    );
+    );*/
 
-    /*return (
+    return (
         <>
             <Join />
             <Mst />
         </>
-    )*/
+    )
 };
 
 export default App;

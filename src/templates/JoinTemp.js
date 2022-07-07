@@ -11,7 +11,7 @@ import StyledLabel from "../atoms/StyledLabel";
 import StyledError from "../atoms/StyledError";
 
 const { Content } = Layout;
-const { Paragraph, Title } = Typography;
+const { Paragraph } = Typography;
 
 const JoinTemp = ({ onSubmit, onChangeAll, onChangeChecks, onChangeRadio }) => {
     const { control, formState: { errors, isDirty, isValid } } = useFormContext();
@@ -30,9 +30,57 @@ const JoinTemp = ({ onSubmit, onChangeAll, onChangeChecks, onChangeRadio }) => {
                                 control={control}
                                 name="name"
                                 placeholder="이름을 입력하세요."
+                                prefix="돋보기"
+                                allowClear
                             />
                             <StyledError
                                 message={errors.name?.message}
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="search" text="검색" />
+                            <StyledInput
+                                control={control}
+                                type='search'
+                                name='search'
+                                // prefix="AAA"
+                                // suffix="RMB"
+                                allowClear
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="password" text="비밀번호" />
+                            <StyledInput
+                                control={control}
+                                name='password'
+                                type='password'
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="number1" text="숫자1" />
+                            <StyledInput
+                                control={control}
+                                className='text-right'
+                                type='number'
+                                name='number1'
+                                block
+                                addonAfter='원'
+                            />
+                        </div>
+
+                        <div>
+                            <StyledLabel htmlFor="number2" text="숫자2" />
+                            <StyledInput
+                                control={control}
+                                className='text-center'
+                                type='number'
+                                name='number2'
+                                block
+                                addonBefore={<button type='button' style={{width: '30px'}} onClick={() => console.log('-')}>-</button>}
+                                addonAfter={<button type='button' style={{width: '30px'}} onClick={() => console.log('+')}>+</button>}
                             />
                         </div>
 

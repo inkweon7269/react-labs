@@ -1,10 +1,12 @@
 import React from "react";
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { Radio } from "antd";
 
 const StyledRadio = ({
-                         control, name, text, style, options, onChange, children,
+                         name, text, style, options, onChange, children,
                      }) => {
+    const { control } = useFormContext();
+
     return (
         <>
             {options ? (

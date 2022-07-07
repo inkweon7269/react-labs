@@ -1,12 +1,14 @@
-import { Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 import { Switch } from "antd";
 
 const StyledSwitch = ({
-                          control,
                           name,
                           chkLabel,
                           unChkLabel,
                       }) => {
+
+    const { control } = useFormContext();
+
     return (
         <Controller
             control={control}
